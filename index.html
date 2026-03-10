@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>साहित्य | BRP Mailo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Noto Sans Devanagari',sans-serif;
+background:#0f172a;
+color:#e2e8f0;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:35px;
+background:linear-gradient(135deg,#1e293b,#020617);
+border-bottom:1px solid #334155;
+}
+
+header h1{font-size:32px;}
+
+header p{opacity:.8;margin-top:8px;}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+background:#020617;
+border-bottom:1px solid #1e293b;
+position:sticky;
+top:0;
+}
+
+.logo{
+color:#60a5fa;
+font-weight:600;
+}
+
+.menu{
+display:flex;
+gap:20px;
+}
+
+.menu a{
+color:#cbd5f5;
+text-decoration:none;
+font-weight:500;
+}
+
+.menu a:hover{color:#60a5fa;}
+
+.hamburger{
+display:none;
+font-size:22px;
+cursor:pointer;
+}
+
+/* CONTENT */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:25px;
+}
+
+.card{
+background:#020617;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+border:1px solid #1e293b;
+}
+
+.title{
+cursor:pointer;
+color:#60a5fa;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.content{
+display:none;
+line-height:1.8;
+white-space:pre-line;
+}
+
+/* WELCOME CARD */
+
+.welcome-card{
+text-align:center;
+padding:35px;
+background:linear-gradient(145deg,#020617,#0f172a);
+border:1px solid #334155;
+}
+
+/* TITLE */
+
+.welcome-title{
+font-size:30px;
+color:#60a5fa;
+margin-bottom:15px;
+letter-spacing:1px;
+}
+
+/* TEXT */
+
+.welcome-text{
+font-size:17px;
+color:#cbd5f5;
+line-height:1.8;
+max-width:700px;
+margin:auto;
+}
+/* SEARCH */
+
+.search{
+width:100%;
+padding:12px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #334155;
+background:#020617;
+color:white;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+border-top:1px solid #1e293b;
+margin-top:40px;
+}
+
+footer p{font-style:italic;opacity:.8;}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.menu{
+display:none;
+flex-direction:column;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:#020617;
+padding:20px;
+}
+
+.menu.active{display:flex;}
+
+.hamburger{display:block;}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>साहित्यिक पृष्ठ</h1>
+<p>शब्दहरूले हृदय बोल्छन्, साहित्यले आत्मा छुन्छ</p>
+
+</header>
+
+<nav>
+
+<div class="logo">BRP Mailo</div>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+
+<a href="#" onclick="show('home')">गृह</a>
+<a href="#" onclick="show('gazal')">गजल</a>
+<a href="#" onclick="show('poem')">कविता</a>
+<a href="#" onclick="show('muktak')">मुक्तक</a>
+
+</div>
+</nav>
+
+
+
+
+<div class="container">
+<!-- HOME -->
+<div id="home" class="section">
+<div class="card">
+<h2>स्वागतम्</h2>
+<p>
+यो वेबसाइट बिआरपी माइलोका गजल, कविता र मुक्तकहरू
+पाठकहरूसमक्ष प्रस्तुत गर्न बनाइएको हो।
+</p>
+</div>
+</div>
+
+
+<!-- GAZAL -->
+
+<div id="gazal" class="section" style="display:none">
+
+<input id="gazalSearch" class="search" placeholder="🔍 गजल खोज्नुहोस्..." onkeyup="search('gazalSearch','gazalList')">
+
+<div id="gazalList"></div>
+
+</div>
+
+<!-- POEM -->
+
+<div id="poem" class="section" style="display:none">
+
+<input id="poemSearch" class="search" placeholder="🔍 कविता खोज्नुहोस्..." onkeyup="search('poemSearch','poemList')">
+
+<div id="poemList"></div>
+
+</div>
+
+<!-- MUKTAK -->
+
+<div id="muktak" class="section" style="display:none">
+
+<input id="muktakSearch" class="search" placeholder="🔍 मुक्तक खोज्नुहोस्..." onkeyup="search('muktakSearch','muktakList')">
+
+<div id="muktakList"></div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+“साहित्य शब्दहरूको मात्र संग्रह होइन,
+यो समाजको आत्मा र चेतनाको दर्पण हो ।”
+</p>
+
+</footer>
+
+<script>
+
+/* MENU */
+
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+
+/* SECTION SHOW */
+
+function show(id){
+
+document.querySelectorAll('.section').forEach(sec=>{
+sec.style.display='none';
+})
+
+document.getElementById(id).style.display='block';
+
+}
+
+/* TOGGLE POEM */
+
+function toggle(el){
+
+let content=el.nextElementSibling;
+
+content.style.display=
+content.style.display==="block"?"none":"block";
+
+}
+
+/* SEARCH */
+
+function search(inputId,listId){
+
+let filter=document.getElementById(inputId).value.toLowerCase();
+
+let cards=document.querySelectorAll("#"+listId+" .card");
+
+cards.forEach(card=>{
+
+let text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(filter)?"block":"none";
+
+})
+
+}
+
+
+
+
+
+/* DATA */
+
+/* GAZAL */
+
+const gazals=[
+
+{
+title:"गजल १ : बाढीको पीडा",
+content:` बाढीले गाउँ बगायो, आमाको पुरानो घर बगायो ।
+            पहिरोले रोड, पुल, जग्गा जमिन नहर बगायो ।<br>
+            बाढी सबै सहेकै थिए, सहर डुबेको सुनेर खबर,
+            गाउँमा बाको आशा, भरोसा र रहर बगायो ।<br>
+            छोरो बस्ने सहर डुबेपछि, रोएका हुन् बा आमा,
+            नत्र त पहिले नै रुँदारुँदै, बाढीले डर भर बगायो ।<br>
+            बगाएर जग्गा जमिन, धन सम्पत्ति पुगेन अझै,
+            सबै सकेर पनि फेरि, आशाको धरोहर बगायो ।<br>
+            आँसु सकिउन्जेल रोएका छन्, बा आमा बेस्सरी,
+            बाढीले आँसु, धड्कन, मन हर-प्रहर बगायो ।<br>         
+<b>✏️ बिआरपी माइलो</b>`
+},
+
+{
+title:"गजल २ : फूलको सुन्दरता",
+content:`फूल सुगन्धले कि, रङ्गले सुन्दर छ?
+            हेराइ न हो यो, आफ्नै ढङ्गले सुन्दर छ 
+            तर बनाउनेहरुले फूल हेरेर रंग बनाए
+            हेर्नेहरु भन्छन् फूलभन्दा रंग सुन्दर छ 
+            प्रकृतिले बसन्तमा, फूलको बयान गरेपछि
+            भनौला फूल त आफ्नै, उमङ्गले सुन्दर छ 
+            तिमीले कुरा फेरेपछि न, हो मैले मन फेरेको
+            नत्र त मेरो पनि मन, अचम्मले सुन्दर छ 
+            ✏️ लेखक: बिआरपी माइलो`
+},
+
+{
+title:"गजल ३ : प्रकृति",
+content:`कापी र कलम अनि प्रकृति चाहिन्छ 
+            एकान्तमा बसेर लेख्न पनि आकृति चाहिन्छ<br>
+            दुखि हुन्छौ नसोध एक्लै पारे एक्लै बनाए
+            एक्लै बनाउन पनि के तिम्रो स्विकृति चाहिन्छ<br>
+            यहाँ नसोधी बनाउनेहरुले नै के के बनाइसके 
+            तर जे बनाउन पनि अलिकिती बिकृति चाहिन्छ<br>
+            स्पष्ट कुरासंग जोड्न तिर्मिर के ल्याउछौ
+            यहाँ भातमा दाल जोड्न पनि प्रिती चाहिन्छ<br>
+            तिमि आफ्ना कुरा बोल्न चाहन्छौ लेखन चाहन्छु
+            तर यो बुझ यहाँ खान पनि संस्कृति चाहिन्छ
+            <b>✏️ लेखक: बिआरपी माइलो</b>`
+},
+
+
+{
+title:"गजल २० : यी बुढाले ",
+content:` खै कोनि के पाएनन् निक्कै खोकेकाछन्
+            यी बुढाले खोपडिमा के के बोकेकाछन् <br>
+            घरी भन्छन् बूढो भएँ, घरी तन्नेरी छु ।
+            गीता पढ्छु भन्दै सधैं, रक्सी धोकेकाछन् ।<br>
+            बुझिसक्नु भए पो यिनका चालामाला
+            भक्त छक्क पर्छन् सबै, मन्त्र घोकेकाछन् <br>
+            कहिँ पंडित बन्छन्, कहिँ  मंदिर छुन्न भन्छन
+            हाँसो लाग्छ सम्झिँदा नि, आफ्नै जिब्रो टोकेकाछन् <br>
+            <b>✏️ लेखक: बिआरपी माइलो</b>`
+}
+];
+
+
+
+
+
+
+
+
+/* POEM */
+
+const poems=[
+
+{
+title:"कविता : आशा",
+content:`मन भित्रको बगैंचामा
+आशाको फूल फुलेको छ।
+
+✏️ बिआरपी माइलो`
+},
+
+{
+title:"कविता : आशा",
+content:`मन भित्रको बगैंचामा
+आशाको फूल फुलेको छ।
+
+✏️ बिआरपी माइलो`
+}
+
+];
+
+/* MUKTAK */
+
+const muktaks=[
+
+{
+title:"मुक्तक १",
+content:`दसैं आयो, धान झुल्यो
+घरै आउँछु आमा।
+
+✏️ बिआरपी माइलो`
+}
+
+];
+
+
+
+
+
+
+
+
+
+
+
+/* LOAD DATA */
+
+function load(list,data){
+
+let container=document.getElementById(list);
+
+data.forEach(d=>{
+
+let card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+<div class="title" onclick="toggle(this)">${d.title}</div>
+<div class="content">${d.content}</div>
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+load("gazalList",gazals);
+load("poemList",poems);
+load("muktakList",muktaks);
+
+</script>
+
+</body>
+</html>
