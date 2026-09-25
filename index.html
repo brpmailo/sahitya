@@ -1,369 +1,619 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="Brp Digital Institute logo.png">
-<title>बिआरपी माइलोका कविता || Poet Brp Mailo</title>
-<title>बिआरपी माइलोका गजल || Writer Brp Mailo</title>
-<title>बिआरपी माइलोका मुक्तक || लेखक बिआरपी माइलो</title>
+<title>बिआरपी माइलोका साहित्यिक कृतिहरू</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
 
 <style>
-
+/* ============ RESET ============ */
 *{margin:0;padding:0;box-sizing:border-box;}
 
+:root{
+  --primary:#7c2d12;
+  --primary-light:#9a3412;
+  --accent:#b45309;
+  --gold:#d97706;
+  --gold-light:#fbbf24;
+  --bg:#fdf6ec;
+  --bg-card:#ffffff;
+  --text:#1c1917;
+  --text-light:#57534e;
+  --border:#e7e5e4;
+  --shadow:0 4px 20px rgba(124,45,18,0.10);
+  --shadow-hover:0 8px 28px rgba(124,45,18,0.18);
+}
+
+html{scroll-behavior:smooth;}
+
 body{
-font-family:'Noto Sans Devanagari',sans-serif;
-background:#0f172a;
-color:#e2e8f0;
+  font-family:'Mukta',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  overflow-x:hidden;
 }
 
-/* HEADER */
-
+/* ============ HEADER ============ */
 header{
-text-align:center;
-padding:35px;
-background:linear-gradient(135deg,#1e293b,#020617);
-border-bottom:1px solid #334155;
+  text-align:center;
+  padding:50px 20px 40px;
+  background:linear-gradient(135deg,#7c2d12 0%,#9a3412 50%,#b45309 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+header::before{
+  content:"❦";
+  position:absolute;
+  font-size:200px;
+  opacity:.07;
+  top:-50px;left:30px;
+  font-family:serif;
+  pointer-events:none;
+}
+header::after{
+  content:"❦";
+  position:absolute;
+  font-size:200px;
+  opacity:.07;
+  bottom:-60px;right:30px;
+  font-family:serif;
+  pointer-events:none;
+}
+header h1{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:40px;
+  letter-spacing:1px;
+  margin-bottom:12px;
+  text-shadow:0 2px 10px rgba(0,0,0,.3);
+  position:relative;
+  z-index:1;
+}
+header p{
+  font-size:16px;
+  opacity:.95;
+  letter-spacing:1.5px;
+  position:relative;
+  z-index:1;
+}
+.header-divider{
+  width:90px;height:3px;
+  background:var(--gold-light);
+  margin:20px auto 0;
+  border-radius:3px;
+  position:relative;
+  z-index:1;
 }
 
-header h1{font-size:32px;}
-
-header p{opacity:.8;margin-top:8px;}
-
-/* NAV */
-
+/* ============ NAV ============ */
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-background:#020617;
-border-bottom:1px solid #1e293b;
-position:sticky;
-top:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 30px;
+  background:#1c1917;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 15px rgba(0,0,0,.2);
 }
-
 .logo{
-color:#60a5fa;
-font-weight:600;
+  color:var(--gold-light);
+  font-weight:600;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:20px;
+  padding:16px 0;
+  letter-spacing:1px;
 }
-
 .menu{
-display:flex;
-gap:20px;
+  display:flex;
+  gap:2px;
 }
-
 .menu a{
-color:#cbd5f5;
-text-decoration:none;
-font-weight:500;
+  color:#e7e5e4;
+  text-decoration:none;
+  font-weight:500;
+  padding:18px 20px;
+  font-size:15px;
+  transition:all .3s;
+  border-bottom:3px solid transparent;
+  position:relative;
 }
-
-.menu a:hover{color:#60a5fa;}
-
+.menu a:hover{
+  color:var(--gold-light);
+  border-bottom-color:var(--gold-light);
+  background:rgba(217,119,6,.1);
+}
+.menu a.active{
+  color:var(--gold-light);
+  border-bottom-color:var(--gold-light);
+}
 .hamburger{
-display:none;
-font-size:22px;
-cursor:pointer;
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+  color:var(--gold-light);
+  padding:14px 0;
+  user-select:none;
 }
 
-/* CONTENT */
-
+/* ============ CONTAINER ============ */
 .container{
-max-width:1000px;
-margin:auto;
-padding:25px;
+  max-width:1000px;
+  margin:auto;
+  padding:40px 20px;
+  min-height:60vh;
 }
 
+/* ============ CARD ============ */
 .card{
-background:#020617;
-padding:20px;
-border-radius:12px;
-margin-bottom:20px;
-border:1px solid #1e293b;
+  background:var(--bg-card);
+  padding:24px 28px;
+  border-radius:12px;
+  margin-bottom:18px;
+  border-left:5px solid var(--gold);
+  box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
 }
-
+.card:hover{
+  transform:translateX(6px);
+  box-shadow:var(--shadow-hover);
+}
 .title{
-cursor:pointer;
-color:#60a5fa;
-font-weight:600;
-margin-bottom:10px;
+  cursor:pointer;
+  color:var(--primary);
+  font-weight:600;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:color .3s;
+  user-select:none;
 }
+.title::before{
+  content:"❖";
+  color:var(--gold);
+  font-size:16px;
+  transition:transform .3s;
+}
+.title:hover{color:var(--accent);}
+.title:hover::before{transform:rotate(90deg);}
 
 .content{
-display:none;
-line-height:1.8;
-white-space:pre-line;
+  display:none;
+  line-height:2.1;
+  white-space:pre-line;
+  color:var(--text-light);
+  padding-top:16px;
+  margin-top:16px;
+  border-top:1px dashed var(--border);
+  font-size:16px;
+  animation:fadeIn .4s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(-8px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-
-
+/* ============ WELCOME ============ */
 .welcome-card{
-text-align:center;
-padding:35px;
-background:linear-gradient(145deg,#020617,#0f172a);
-border:1px solid #334155;
+  text-align:center;
+  padding:50px 30px;
+  background:linear-gradient(145deg,#fff,#fef3c7);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  position:relative;
+  margin-bottom:30px;
 }
-
-
+.welcome-card::before,
+.welcome-card::after{
+  content:"❝";
+  position:absolute;
+  font-size:80px;
+  color:var(--gold);
+  opacity:.2;
+  font-family:serif;
+  line-height:1;
+}
+.welcome-card::before{top:20px;left:30px;}
+.welcome-card::after{content:"❞";bottom:0;right:30px;}
 
 .welcome-title{
-font-size:30px;
-color:#60a5fa;
-margin-bottom:15px;
-letter-spacing:1px;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:34px;
+  color:var(--primary);
+  margin-bottom:20px;
+  letter-spacing:1px;
 }
-
-
-
 .welcome-text{
-font-size:17px;
-color:#cbd5f5;
-line-height:1.8;
-max-width:700px;
-margin:auto;
+  font-size:17px;
+  color:var(--text-light);
+  line-height:2;
+  max-width:700px;
+  margin:auto;
 }
-/* SEARCH */
+.welcome-text strong{color:var(--primary);font-weight:600;}
 
+/* ============ SECTION HEADING ============ */
+.section-heading{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:28px;
+  color:var(--primary);
+  margin-bottom:25px;
+  padding-bottom:12px;
+  border-bottom:3px solid var(--gold);
+  display:inline-block;
+  letter-spacing:.5px;
+}
+
+/* ============ SEARCH ============ */
 .search{
-width:100%;
-padding:12px;
-margin-bottom:20px;
-border-radius:8px;
-border:1px solid #334155;
-background:#020617;
-color:white;
+  width:100%;
+  padding:15px 20px;
+  margin-bottom:25px;
+  border-radius:10px;
+  border:2px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  font-family:'Mukta',sans-serif;
+  font-size:15px;
+  transition:border .3s,box-shadow .3s;
+}
+.search:focus{
+  outline:none;
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(217,119,6,.15);
+}
+.search::placeholder{color:#a8a29e;}
+
+/* ============ PROFILE ============ */
+.profile-section{
+  background:linear-gradient(145deg,#fff,#fef3c7);
+  border-radius:16px;
+  padding:50px 35px;
+  box-shadow:var(--shadow);
+  border-top:5px solid var(--gold);
+  text-align:center;
+}
+.profile-avatar{
+  width:120px;height:120px;
+  margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:52px;
+  box-shadow:0 10px 30px rgba(124,45,18,.35);
+  border:4px solid #fff;
+}
+.profile-name{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:32px;
+  color:var(--primary);
+  margin-bottom:8px;
+  letter-spacing:.5px;
+}
+.profile-tag{
+  color:var(--accent);
+  font-size:16px;
+  font-style:italic;
+  margin-bottom:22px;
+  letter-spacing:.5px;
+}
+.profile-bio{
+  max-width:650px;
+  margin:0 auto;
+  color:var(--text-light);
+  line-height:2;
+  font-size:16px;
+}
+.profile-stats{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+.profile-stats div{
+  background:#fff;
+  padding:16px 30px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  box-shadow:0 3px 12px rgba(124,45,18,.08);
+  min-width:110px;
+  transition:transform .3s;
+}
+.profile-stats div:hover{transform:translateY(-5px);}
+.profile-stats strong{
+  display:block;
+  font-size:30px;
+  color:var(--primary);
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  margin-bottom:4px;
+}
+.profile-stats span{
+  font-size:13px;
+  color:var(--text-light);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-weight:500;
 }
 
-
-
+/* ============ FOOTER ============ */
 footer{
-text-align:center;
-padding:30px;
-background:#020617;
-border-top:1px solid #1e293b;
-margin-top:40px;
+  text-align:center;
+  padding:50px 20px 30px;
+  background:#1c1917;
+  color:#d6d3d1;
+  margin-top:60px;
+}
+footer p{
+  font-style:italic;
+  opacity:.9;
+  max-width:650px;
+  margin:auto;
+  line-height:2;
+  font-size:15px;
+}
+footer .footer-line{
+  width:70px;height:2px;
+  background:var(--gold);
+  margin:22px auto;
+  border-radius:2px;
+}
+footer .copy{
+  font-style:normal;
+  font-size:13px;
+  opacity:.6;
+  margin-top:15px;
+  letter-spacing:.5px;
 }
 
-footer p{font-style:italic;opacity:.8;}
-
-
-
+/* ============ RESPONSIVE ============ */
 @media(max-width:768px){
-
-.menu{
-display:none;
-flex-direction:column;
-position:absolute;
-top:60px;
-left:0;
-width:100%;
-background:#020617;
-padding:20px;
+  nav{padding:0 18px;}
+  .menu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:100%;left:0;
+    width:100%;
+    background:#1c1917;
+    padding:8px 0;
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+    gap:0;
+  }
+  .menu.active{display:flex;}
+  .menu a{padding:15px 25px;border-bottom:1px solid #292524;border-left:3px solid transparent;}
+  .menu a:hover,.menu a.active{border-left-color:var(--gold-light);border-bottom-color:#292524;}
+  .hamburger{display:block;}
+  header h1{font-size:26px;}
+  header p{font-size:14px;letter-spacing:1px;}
+  .welcome-title{font-size:24px;}
+  .welcome-text{font-size:15px;}
+  .profile-name{font-size:24px;}
+  .profile-avatar{width:100px;height:100px;font-size:42px;}
+  .section-heading{font-size:22px;}
+  .card{padding:20px;}
+  .title{font-size:17px;}
+  .content{font-size:15px;}
+  .profile-stats div{padding:12px 22px;min-width:90px;}
+  .profile-stats strong{font-size:24px;}
 }
 
-.menu.active{display:flex;}
-
-.hamburger{display:block;}
-
+@media(max-width:400px){
+  header h1{font-size:22px;}
+  .logo{font-size:17px;}
 }
 </style>
 </head>
 
-
-
 <body>
+
+<!-- ============ HEADER ============ -->
 <header>
-
-<h1>बिआरपी माइलोका साहित्यिक कृतिहरु</h1>
-<p>शब्दहरूले हृदय बोल्छन्, साहित्यले आत्मा छुन्छ</p>
-
+  <h1>बिआरपी माइलोका साहित्यिक कृतिहरू</h1>
+  <p>शब्दहरूले हृदय बोल्छन्, साहित्यले आत्मा छुन्छ</p>
+  <div class="header-divider"></div>
 </header>
 
+<!-- ============ NAV ============ -->
 <nav>
-
-
-
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-
-<div class="menu" id="menu">
-
-<a href="#" onclick="show('home')">गृह</a>
-<a href="#" onclick="show('gazal')">गजल</a>
-<a href="#" onclick="show('poem')">कविता</a>
-<a href="#" onclick="show('muktak')">मुक्तक</a>
-
-</div>
+  <div class="logo">❦ साहित्य</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu" id="menu">
+    <a href="#" class="nav-link active" onclick="show('home', this)">गृह</a>
+    <a href="#" class="nav-link" onclick="show('gazal', this)">गजल</a>
+    <a href="#" class="nav-link" onclick="show('poem', this)">कविता</a>
+    <a href="#" class="nav-link" onclick="show('muktak', this)">मुक्तक</a>
+    <a href="#" class="nav-link" onclick="show('profile', this)">लेखक परिचय</a>
+  </div>
 </nav>
 
-
-
-
 <div class="container">
-<!-- HOME -->
-<div id="home" class="section">
-<div class="card">
-<h2>स्वागतम्</h2>
-<p>
-यो वेबसाइट बिआरपी माइलोका गजल, कविता र मुक्तकहरू
-पाठकहरूसमक्ष प्रस्तुत गर्न बनाइएको हो।
-</p>
+
+  <!-- ============ HOME ============ -->
+  <div id="home" class="section">
+    <div class="welcome-card">
+      <h2 class="welcome-title">स्वागतम् 🙏</h2>
+      <p class="welcome-text">
+        यो वेबसाइट <strong>बिआरपी माइलो</strong> का गजल, कविता र मुक्तकहरू
+        पाठकहरूसमक्ष प्रस्तुत गर्न बनाइएको हो। यहाँ तपाईंले साहित्यकारका
+        सम्पूर्ण सिर्जनाहरू एकै ठाउँमा पढ्न सक्नुहुनेछ। मेनुबाट कुनै विधा
+        छान्नुहोस् र पढ्न सुरु गर्नुहोस्।
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ GAZAL ============ -->
+  <div id="gazal" class="section" style="display:none">
+    <h2 class="section-heading">📜 गजलहरू</h2>
+    <input id="gazalSearch" class="search" placeholder="🔍 गजल खोज्नुहोस्..." onkeyup="search('gazalSearch','gazalList')">
+    <div id="gazalList"></div>
+  </div>
+
+  <!-- ============ POEM ============ -->
+  <div id="poem" class="section" style="display:none">
+    <h2 class="section-heading">✍️ कविताहरू</h2>
+    <input id="poemSearch" class="search" placeholder="🔍 कविता खोज्नुहोस्..." onkeyup="search('poemSearch','poemList')">
+    <div id="poemList"></div>
+  </div>
+
+  <!-- ============ MUKTAK ============ -->
+  <div id="muktak" class="section" style="display:none">
+    <h2 class="section-heading">🪶 मुक्तकहरू</h2>
+    <input id="muktakSearch" class="search" placeholder="🔍 मुक्तक खोज्नुहोस्..." onkeyup="search('muktakSearch','muktakList')">
+    <div id="muktakList"></div>
+  </div>
+
+  <!-- ============ PROFILE ============ -->
+  <div id="profile" class="section" style="display:none">
+    <div class="profile-section">
+      <div class="profile-avatar">बि</div>
+      <h2 class="profile-name">बिआरपी माइलो</h2>
+      <p class="profile-tag">कवि • गजलकार • मुक्तककार • शिक्षक</p>
+      <p class="profile-bio">
+        बिआरपी माइलो एक समर्पित नेपाली साहित्यकार हुनुहुन्छ, जसले गजल, कविता
+        र मुक्तक विधामार्फत समाज, देशप्रेम, प्रकृति र मानवीय संवेदनालाई
+        आफ्ना शब्दहरूमा उतार्नुभएको छ। उहाँका रचनाहरूले पाठकको हृदय छुन्छन्
+        र समाजमा सकारात्मक चेतना जगाउने प्रयास गर्छन्। शिक्षण पेशामा
+        संलग्न हुँदै साहित्य सिर्जनामा निरन्तर सक्रिय रहनुभएका उहाँका
+        रचनाहरू यहाँ सङ्कलित छन्।
+      </p>
+      <div class="profile-stats">
+        <div><strong id="statGazal">०</strong><span>गजल</span></div>
+        <div><strong id="statPoem">०</strong><span>कविता</span></div>
+        <div><strong id="statMuktak">०</strong><span>मुक्तक</span></div>
+      </div>
+    </div>
+  </div>
+
 </div>
-</div>
 
-
-
-<!-- GAZAL -->
-
-<div id="gazal" class="section" style="display:none">
-
-<input id="gazalSearch" class="search" placeholder="🔍 गजल खोज्नुहोस्..." onkeyup="search('gazalSearch','gazalList')">
-
-<div id="gazalList"></div>
-
-</div>
-
-<!-- POEM -->
-
-<div id="poem" class="section" style="display:none">
-
-<input id="poemSearch" class="search" placeholder="🔍 कविता खोज्नुहोस्..." onkeyup="search('poemSearch','poemList')">
-
-<div id="poemList"></div>
-
-</div>
-
-<!-- MUKTAK -->
-
-<div id="muktak" class="section" style="display:none">
-
-<input id="muktakSearch" class="search" placeholder="🔍 मुक्तक खोज्नुहोस्..." onkeyup="search('muktakSearch','muktakList')">
-
-<div id="muktakList"></div>
-
-</div>
-
-</div>
-
+<!-- ============ FOOTER ============ -->
 <footer>
-
-<p>
-“मात्र शब्दहरूको संग्रह साहित्य होइन,
-यो त समाजको आत्मा र चेतनाको दर्पण हो ।”
-</p>
-
+  <p>
+    “मात्र शब्दहरूको संग्रह साहित्य होइन,<br>
+    यो त समाजको आत्मा र चेतनाको दर्पण हो ।”
+  </p>
+  <div class="footer-line"></div>
+  <p class="copy">© बिआरपी माइलो — सर्वाधिकार सुरक्षित</p>
 </footer>
 
 <script>
-
-/* MENU */
-
+/* ============ MENU ============ */
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
+  document.getElementById("menu").classList.toggle("active");
 }
 
-/* SECTION SHOW */
+/* ============ SECTION SHOW ============ */
+function show(id, el){
+  document.querySelectorAll('.section').forEach(sec=>{
+    sec.style.display='none';
+  });
+  document.getElementById(id).style.display='block';
 
-function show(id){
+  /* Active nav highlight */
+  document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));
+  if(el) el.classList.add('active');
 
-document.querySelectorAll('.section').forEach(sec=>{
-sec.style.display='none';
-})
+  /* Mobile menu बन्द */
+  document.getElementById("menu").classList.remove("active");
 
-document.getElementById(id).style.display='block';
-
+  /* माथि स्क्रोल */
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* TOGGLE POEM */
-
+/* ============ TOGGLE CONTENT ============ */
 function toggle(el){
-
-let content=el.nextElementSibling;
-
-content.style.display=
-content.style.display==="block"?"none":"block";
-
+  let content=el.nextElementSibling;
+  content.style.display = content.style.display==="block" ? "none" : "block";
 }
 
-/* SEARCH */
-
+/* ============ SEARCH ============ */
 function search(inputId,listId){
-
-let filter=document.getElementById(inputId).value.toLowerCase();
-
-let cards=document.querySelectorAll("#"+listId+" .card");
-
-cards.forEach(card=>{
-
-let text=card.innerText.toLowerCase();
-
-card.style.display=text.includes(filter)?"block":"none";
-
-})
-
+  let filter=document.getElementById(inputId).value.toLowerCase().trim();
+  let cards=document.querySelectorAll("#"+listId+" .card");
+  cards.forEach(card=>{
+    let text=card.innerText.toLowerCase();
+    card.style.display=text.includes(filter)?"block":"none";
+  });
 }
 
+/* ============ NEPALI NUMBER ============ */
+function toNepali(n){
+  const map={"0":"०","1":"१","2":"२","3":"३","4":"४","5":"५","6":"६","7":"७","8":"८","9":"९"};
+  return String(n).replace(/[0-9]/g, d=>map[d]);
+}
 
-
-
-
-
-
-
-
+/* ===================================================
+   DATA: GAZALS
+=================================================== */
 const gazals=[
-
 {
 title:"गजल: १",
-content:` बाढीले गाउँ बगायो, आमाको पुरानो घर बगायो ।
-            पहिरोले रोड, पुल, जग्गा जमिन नहर बगायो ।<br>
-            बाढी सबै सहेकै थिए, सहर डुबेको सुनेर खबर,
-            गाउँमा बाको आशा, भरोसा र रहर बगायो ।<br>
-            छोरो बस्ने सहर डुबेपछि, रोएका हुन् बा आमा,
-            नत्र त पहिले नै रुँदारुँदै, बाढीले डर भर बगायो ।<br>
-            बगाएर जग्गा जमिन, धन सम्पत्ति पुगेन अझै,
-            सबै सकेर पनि फेरि, आशाको धरोहर बगायो ।<br>
-            आँसु सकिउन्जेल रोएका छन्, बा आमा बेस्सरी,
-            बाढीले आँसु, धड्कन, मन हर-प्रहर बगायो ।<br>         
-<b>✏️ बिआरपी माइलो</b>`
-},
+content:`बाढीले गाउँ बगायो, आमाको पुरानो घर बगायो ।
+पहिरोले रोड, पुल, जग्गा जमिन नहर बगायो ।
 
+बाढी सबै सहेकै थिए, सहर डुबेको सुनेर खबर,
+गाउँमा बाको आशा, भरोसा र रहर बगायो ।
+
+छोरो बस्ने सहर डुबेपछि, रोएका हुन् बा आमा,
+नत्र त पहिले नै रुँदारुँदै, बाढीले डर भर बगायो ।
+
+बगाएर जग्गा जमिन, धन सम्पत्ति पुगेन अझै,
+सबै सकेर पनि फेरि, आशाको धरोहर बगायो ।
+
+आँसु सकिउन्जेल रोएका छन्, बा आमा बेस्सरी,
+बाढीले आँसु, धड्कन, मन हर-प्रहर बगायो ।
+
+✏️ बिआरपी माइलो`
+},
 {
 title:"गजल: २",
 content:`फूल सुगन्धले कि, रङ्गले सुन्दर छ?
-            हेराइ न हो यो, आफ्नै ढङ्गले सुन्दर छ 
-            तर बनाउनेहरुले फूल हेरेर रंग बनाए
-            हेर्नेहरु भन्छन् फूलभन्दा रंग सुन्दर छ 
-            प्रकृतिले बसन्तमा, फूलको बयान गरेपछि
-            भनौला फूल त आफ्नै, उमङ्गले सुन्दर छ 
-            तिमीले कुरा फेरेपछि न, हो मैले मन फेरेको
-            नत्र त मेरो पनि मन, अचम्मले सुन्दर छ 
-            ✏️ लेखक: बिआरपी माइलो`
-},
+हेराइ न हो यो, आफ्नै ढङ्गले सुन्दर छ
 
+तर बनाउनेहरुले फूल हेरेर रंग बनाए
+हेर्नेहरु भन्छन् फूलभन्दा रंग सुन्दर छ
+
+प्रकृतिले बसन्तमा, फूलको बयान गरेपछि
+भनौला फूल त आफ्नै, उमङ्गले सुन्दर छ
+
+तिमीले कुरा फेरेपछि न, हो मैले मन फेरेको
+नत्र त मेरो पनि मन, अचम्मले सुन्दर छ
+
+✏️ लेखक: बिआरपी माइलो`
+},
 {
 title:"गजल: ३",
-content:`कापी र कलम अनि प्रकृति चाहिन्छ 
-            एकान्तमा बसेर लेख्न पनि आकृति चाहिन्छ<br>
-            दुखि हुन्छौ नसोध एक्लै पारे एक्लै बनाए
-            एक्लै बनाउन पनि के तिम्रो स्विकृति चाहिन्छ<br>
-            यहाँ नसोधी बनाउनेहरुले नै के के बनाइसके 
-            तर जे बनाउन पनि अलिकिती बिकृति चाहिन्छ<br>
-            स्पष्ट कुरासंग जोड्न तिर्मिर के ल्याउछौ
-            यहाँ भातमा दाल जोड्न पनि प्रिती चाहिन्छ<br>
-            तिमि आफ्ना कुरा बोल्न चाहन्छौ लेखन चाहन्छु
-            तर यो बुझ यहाँ खान पनि संस्कृति चाहिन्छ
-            <b>✏️ लेखक: बिआरपी माइलो</b>`
-},
+content:`कापी र कलम अनि प्रकृति चाहिन्छ
+एकान्तमा बसेर लेख्न पनि आकृति चाहिन्छ
 
+दुखि हुन्छौ नसोध एक्लै पारे एक्लै बनाए
+एक्लै बनाउन पनि के तिम्रो स्विकृति चाहिन्छ
+
+यहाँ नसोधी बनाउनेहरुले नै के के बनाइसके
+तर जे बनाउन पनि अलिकिती बिकृति चाहिन्छ
+
+स्पष्ट कुरासंग जोड्न तिर्मिर के ल्याउछौ
+यहाँ भातमा दाल जोड्न पनि प्रिती चाहिन्छ
+
+तिमि आफ्ना कुरा बोल्न चाहन्छौ लेखन चाहन्छु
+तर यो बुझ यहाँ खान पनि संस्कृति चाहिन्छ
+
+✏️ लेखक: बिआरपी माइलो`
+},
 {
 title:"गजल: ४",
-content:`
-सहर सकियो गाउँ पस्न, घरै आउँछु भन्न मन छ ।
+content:`सहर सकियो गाउँ पस्न, घरै आउँछु भन्न मन छ ।
 आमा बाको साथमा बस्न, घरै आउँछु भन्न मन छ ।
 
 नसकिने भयो तिम्रो, सहरको पानी खान
@@ -374,12 +624,12 @@ content:`
 
 साच्चै आमा किन मलाई, रहर लाग्नै छोडिसको
 अब सधैं तल खस्न, घरै आउँछु भन्न मन छ ।
-<b>✏:बिआरपी माइलो</b>`
+
+✏️ बिआरपी माइलो`
 },
 {
 title:"गजल: ५",
-content:`
-आज चम्किलो सहर, भोलि अस्ताउन सक्छ ।
+content:`आज चम्किलो सहर, भोलि अस्ताउन सक्छ ।
 बचाइ राख पक्रिएर, नत्र निस्ताउन सक्छ ।
 
 समयको खेल न हो, के बेर बद्लिनलाई
@@ -393,13 +643,12 @@ content:`
 
 तिम्रा भागमा परेन, यो सुन बाँड्दाबाँड्दै
 सुन छोड्नेले कहिँ कतै, हिरा पाउन सक्छ ।
-<b>✏:बिआरपी माइलो</b>`
-},
 
+✏️ बिआरपी माइलो`
+},
 {
 title:"गजल: ६",
-content:`
-तिमी साथ छु भन्छौ, साहारा लाग्छ
+content:`तिमी साथ छु भन्छौ, साहारा लाग्छ
 आजभोलि किन सबैं, आहारा लाग्छ।
 
 तिमी नहुदा त सबै सकिनुपर्ने,
@@ -413,13 +662,12 @@ content:`
 
 मन पनिं कस्तों हो मान्ने पर्छ यसलाई,
 बिनाकारण तिमि नै सारा लाग्छ।
-<b>✏:बिआरपी माइलो</b>`
-},
 
+✏️ बिआरपी माइलो`
+},
 {
 title:"गजल: ७",
-content:`
-सबै थोक छ तिमि भइनौ , प्रहर फेरियो ।
+content:`सबै थोक छ तिमि भइनौ , प्रहर फेरियो ।
 हरायपछी त्याहाबाट तिमि , सहर फेरियो ।
 
 बरबादिका दिन चलेकाछन लाग्यो सुन्नुपर्छ ?
@@ -433,13 +681,12 @@ content:`
 
 हिस्स हासों बोकेको खुशी मुहारमा खैन के भयो।
 भन्छ दुनियाले यसको दन्त लहर फेरियो ।
-<b>✏:बिआरपी माइलो</b>`
-},
 
+✏️ बिआरपी माइलो`
+},
 {
 title:"गजल: ८",
-content:`
-यी गरिब हुन् त्यसैले हराउन सकिन्छ ।
+content:`यी गरिब हुन् त्यसैले हराउन सकिन्छ ।
 तिम्रै राज चल्छ रत कमाउन सकिन्छ ।
 
 यहाँ न मुर्ख भन्न मिल्छ न सद्धे भन्नु मिल्छ ।
@@ -450,91 +697,85 @@ content:`
 
 थोरै भय पनि आशा राखेको छु गर्लान केहि,
 यो केहि नै भय पनि मन परौना सकिन्छ ।
-<b>✏:बिआरपी माइलो</b>`
-},
 
+✏️ बिआरपी माइलो`
+},
 {
-title:"गजल: २०",
-content:` खै कोनि के पाएनन् निक्कै खोकेकाछन्
-            यी बुढाले खोपडिमा के के बोकेकाछन् <br>
-            घरी भन्छन् बूढो भएँ, घरी तन्नेरी छु ।
-            गीता पढ्छु भन्दै सधैं, रक्सी धोकेकाछन् ।<br>
-            बुझिसक्नु भए पो यिनका चालामाला
-            भक्त छक्क पर्छन् सबै, मन्त्र घोकेकाछन् <br>
-            कहिँ पंडित बन्छन्, कहिँ  मंदिर छुन्न भन्छन
-            हाँसो लाग्छ सम्झिँदा नि, आफ्नै जिब्रो टोकेकाछन् <br>
-            <b>✏️ लेखक: बिआरपी माइलो</b>`
+title:"गजल: ९",
+content:`खै कोनि के पाएनन् निक्कै खोकेकाछन्
+यी बुढाले खोपडिमा के के बोकेकाछन्
+
+घरी भन्छन् बूढो भएँ, घरी तन्नेरी छु ।
+गीता पढ्छु भन्दै सधैं, रक्सी धोकेकाछन् ।
+
+बुझिसक्नु भए पो यिनका चालामाला
+भक्त छक्क पर्छन् सबै, मन्त्र घोकेकाछन्
+
+कहिँ पंडित बन्छन्, कहिँ  मंदिर छुन्न भन्छन
+हाँसो लाग्छ सम्झिँदा नि, आफ्नै जिब्रो टोकेकाछन्
+
+✏️ लेखक: बिआरपी माइलो`
 }
 ];
 
-
-
-
-
-
-
-
-
-
+/* ===================================================
+   DATA: POEMS
+=================================================== */
 const poems=[
-
 {
 title:"कविता : लेख न ए ! नौजवान कवि हो",
 content:`लेख न ए नौजवान कवि हो,
-सुन्दर भविष्यको कविता 
-कति लेख्छौ उहि पुरानो 
-पुस्ताको थोत्रो कहानी 
-तिम्रा कविताले अब 
+सुन्दर भविष्यको कविता
+कति लेख्छौ उहि पुरानो
+पुस्ताको थोत्रो कहानी
+तिम्रा कविताले अब
 देशको आशा बोल्नुपर्छ
-तिम्रा कविताले अब 
+तिम्रा कविताले अब
 युवालाई सपना देखाउनुपर्छ
-ती परम्पराका विचित्र कहानी लेख्ने 
-तिम्रो त्यो थोत्रो दिमागलाई 
-अब टालटुल पारेर छोप 
-खिया लागेको तिम्रो मस्तिष्कमा 
-नवीन शब्दहरू रच 
+ती परम्पराका विचित्र कहानी लेख्ने
+तिम्रो त्यो थोत्रो दिमागलाई
+अब टालटुल पारेर छोप
+खिया लागेको तिम्रो मस्तिष्कमा
+नवीन शब्दहरू रच
 
 रच न ए नौजवान कवि हो
-देशको भविष्यको गन्तव्य 
-कति रच्छौ उनै भावनाका 
-प्रेमिल कुण्ठाहरू 
-तिम्रा रचनाले अब 
-देश रच्नुपर्छ 
-तिम्रा रचनाले अब 
-पहाड फोर्नुपर्छ। 
-तिनै अभागी इतिहासका 
+देशको भविष्यको गन्तव्य
+कति रच्छौ उनै भावनाका
+प्रेमिल कुण्ठाहरू
+तिम्रा रचनाले अब
+देश रच्नुपर्छ
+तिम्रा रचनाले अब
+पहाड फोर्नुपर्छ।
+तिनै अभागी इतिहासका
 पानाहरुलाई ताजा नबनाऊ
-उम्रँदै गरेका बिरुवाहरूलाई 
-माथिमाथि कसरी पुग्ने सिकाउ 
-पलाउँदै गरेका पालुवाहरुलाई 
-फैलने कसरी कला सिकाउ 
-पुरातन भुलेर अब 
+उम्रँदै गरेका बिरुवाहरूलाई
+माथिमाथि कसरी पुग्ने सिकाउ
+पलाउँदै गरेका पालुवाहरुलाई
+फैलने कसरी कला सिकाउ
+पुरातन भुलेर अब
 नयाँ सुत्रहरु सिर्ज
 
 सिर्ज न ए नौजवान कवि हो
-देशको स्थिति बदल्ने सूत्र 
-कति सिर्जन्छौ परिस्थिति 
-अनुरूपका सिद्धान्त 
-तिम्रा सिर्जनाले अब 
-खुसीको बिगुल फुक्नुपर्छ 
-तिम्रा सिर्जनाले अब 
-समृद्धिको हुटहुटी जगाउनुपर्छ। 
-भुलेर कयौं पुस्ता अगाडिका 
-विचित्र मर्यादाको खाका 
-जन्माउनुपर्छ अब एक 
-परिपक्क सेवक 
-बनाउनुपर्छ नयाँ इतिहास 
-अनि फेरि त्यो इतिहास भुलेर 
+देशको स्थिति बदल्ने सूत्र
+कति सिर्जन्छौ परिस्थिति
+अनुरूपका सिद्धान्त
+तिम्रा सिर्जनाले अब
+खुसीको बिगुल फुक्नुपर्छ
+तिम्रा सिर्जनाले अब
+समृद्धिको हुटहुटी जगाउनुपर्छ।
+भुलेर कयौं पुस्ता अगाडिका
+विचित्र मर्यादाको खाका
+जन्माउनुपर्छ अब एक
+परिपक्क सेवक
+बनाउनुपर्छ नयाँ इतिहास
+अनि फेरि त्यो इतिहास भुलेर
 अझै नयाँ सपना देखाउनुपर्छ
+
 ✏️ बिआरपी माइलो`
 },
-
-
 {
-title:"कविता : मूकदर्शक शिरीष   ",
-content:`
-
-पानी पर्नु
+title:"कविता : मूकदर्शक शिरीष",
+content:`पानी पर्नु
 कतै रुनु हो,
 कतै रमाउनु हो,
 कतै हाँस्नु हो,
@@ -612,93 +853,86 @@ content:`
 
 ✏️ बिआरपी माइलो`
 },
-
-
 {
 title:"कविता : साँघुरो गल्लिको बयान",
-content:`
-
-म एक साँघुरो गल्लि 
-तिमी राजमार्गलाई मेरो कुनै कथाको 
+content:`म एक साँघुरो गल्लि
+तिमी राजमार्गलाई मेरो कुनै कथाको
 एक अंश थाहा छैन,
-म भुइँमान्छेहरुलाई अँध्यारोमा 
-गन्तब्य देखाउछु । 
-म माथि न कुनै उज्यालो चम्कन्छ, 
+म भुइँमान्छेहरुलाई अँध्यारोमा
+गन्तब्य देखाउछु ।
+म माथि न कुनै उज्यालो चम्कन्छ,
 म माथि न कुनै आवाज घन्किन्छ,
-म केवल सुनसान 
+म केवल सुनसान
 एक सडक पेटी ।
 
 तिमीमाथि कुद्ने कुनै
 महंगा कारहरु
-म अटाउन सक्दिन । 
-म केवल एक अनाथ बचेरो,
-तिमीमाथि तेर्सिएका 
-प्रविधिका झड्काहरु 
-मेरो अस्तित्वमा 
 म अटाउन सक्दिन ।
-म केवल सहरको धुँवा धुलो  ।
+म केवल एक अनाथ बचेरो,
+तिमीमाथि तेर्सिएका
+प्रविधिका झड्काहरु
+मेरो अस्तित्वमा
+म अटाउन सक्दिन ।
+म केवल सहरको धुँवा धुलो ।
 
-तिमी पाँचतारे होटलका 
+तिमी पाँचतारे होटलका
 साहूसँग स्वाद चाख्न माहिर
 म भोकभोकै निदाउने
 बटुवाको मिठो निद्राको साक्षी ।
-तिमीलाई कुल्चन पनि 
+तिमीलाई कुल्चन पनि
 जोर्डन अस्तित्वको छाप चाहिन्छ ।
-पैदल यात्रीको 
+पैदल यात्रीको
 पाउका  ठेलालाई स्पर्श गर्ने,
-म केवल 
+म केवल
 एक गोरेटो बाटो ।
+
 ✏️ बिआरपी माइलो`
 },
-
-
 {
 title:"कविता: देशको सपना",
-content:`म देशका अनगिन्ती 
-वक्ररेखाहरूसँग 
+content:`म देशका अनगिन्ती
+वक्ररेखाहरूसँग
 आफ्नो साइनो गाँस्दैछु।
-म कोतर्दै छु। 
-मेरै भिरका बाँझा पाखाहरू 
-मैले सफलताको सपना देखेर 
-आकाशमा उड्न चाहने 
+म कोतर्दै छु।
+मेरै भिरका बाँझा पाखाहरू
+मैले सफलताको सपना देखेर
+आकाशमा उड्न चाहने
 युवा चराहरुलाई समातेँ
 कसैका पखेटा काटेँ,
-भनेर मेरै देश रङ्गाउनु छ। 
+भनेर मेरै देश रङ्गाउनु छ।
 
 बगिरहेका नदीहरूलाई रोकेँ
-बहिरहेको हावालाई सोधेँ 
-उडिरहेको बादललाई भेटेँ 
-अब चट्याङ झैँ तेजले 
-देशको मुहार फेरिँदै छ। 
-बन्दैछन् भत्किएका मनहरु 
-उठ्दै छन् लडेका लडाकुहरु 
-देशको गुदी, 
-जो लुटिएको थियो 
-अब फिर्ता हुँदैछ परिवर्तनको सपना 
-बिहानै उदाउने घामको प्रकाशसँगै 
-शुक्ल पक्षको चन्द्रझै 
-अब उदाउँदै छन् समृद्धिका झिल्काहरु 
+बहिरहेको हावालाई सोधेँ
+उडिरहेको बादललाई भेटेँ
+अब चट्याङ झैँ तेजले
+देशको मुहार फेरिँदै छ।
+बन्दैछन् भत्किएका मनहरु
+उठ्दै छन् लडेका लडाकुहरु
+देशको गुदी,
+जो लुटिएको थियो
+अब फिर्ता हुँदैछ परिवर्तनको सपना
+बिहानै उदाउने घामको प्रकाशसँगै
+शुक्ल पक्षको चन्द्रझै
+अब उदाउँदै छन् समृद्धिका झिल्काहरु
 जसरी,
 शिशिर पछि बसन्त आउँछ,
-अब आउँदैछ 
-त्यसरी नै सपनापछि बिपना  ।
-आफै बलत्कृत भएर 
-रगतको आहालमा डुबेकी 
-मेरी चेलीले 
+अब आउँदैछ
+त्यसरी नै सपनापछि बिपना ।
+आफै बलत्कृत भएर
+रगतको आहालमा डुबेकी
+मेरी चेलीले
 अब,
-ओभानो हुने दिन आउँदैछ। 
-आउँदैछ सहितकी आमाको 
+ओभानो हुने दिन आउँदैछ।
+आउँदैछ सहितकी आमाको
 आँसु रोकिने दिन ।
-आउँदैछ मेरो देश 
+आउँदैछ मेरो देश
 मेरो देश हुने दिन ।
+
 ✏️ बिआरपी माइलो`
-	},
-
-
+},
 {
 title:"कविता: मेरो देश",
-content:`
-छाती रेटिए पनि मेरो, मन मुटु देखिंदैन
+content:`छाती रेटिए पनि मेरो, मन मुटु देखिंदैन
 त्यहाँ त हिमाल देखिन्छ
 एउटा अटल पहाड देखिन्छ
 उसको त कपाल काट्दा पनि
@@ -739,11 +973,11 @@ content:`
 मलाई बोधिसत्व थाहा छ
 हामी वीर गोर्खाली,
 मलाइ भोजपुरको खुकुरी थाहा छ
-र.......... थाहा छैन मलाइ, 
+र.......... थाहा छैन मलाइ,
 मेरो देश बाहेक
-✏️ बिआरपी माइलो`
-	},
 
+✏️ बिआरपी माइलो`
+},
 {
 title:"कविता : आशा र संघर्ष",
 content:`मन भित्रको बगैंचामा एउटा फूल रोपेको थें
@@ -772,11 +1006,9 @@ content:`मन भित्रको बगैंचामा एउटा फ�
 
 ✏️ बिआरपी माइलो`
 },
-
 {
 title:"कविता: विकृति",
-content:`
-हाम्रो समाजमा सबै काम हुन्छन्
+content:`हाम्रो समाजमा सबै काम हुन्छन्
 सबै मानिस खराब विकृति मात्र छुन्छन्
 
 कोहि छैनन् समाजलाई राम्रो बनाउने
@@ -806,22 +1038,21 @@ content:`
 विकृति हटाइ संस्कृतिले देशको नाम भरौं
 
 (कक्षा ५ अध्ययन गर्दा लेखेर विद्यालय प्रथम भएको कविता)
-✏️ बिआरपी माइलो`
-	},
 
+✏️ बिआरपी माइलो`
+},
 {
 title:"कविता: अनुभूति: एक आत्मकथा",
-content:`
-साधारण परिवारमा जन्मिएको एउटा बालक,
-जसको सपनामा राजधानीका उज्याला सडकहरू थिएनन् 
+content:`साधारण परिवारमा जन्मिएको एउटा बालक,
+जसको सपनामा राजधानीका उज्याला सडकहरू थिएनन्
 थिए त केवल माटोको गोरेटो,
 गाउँका आँखा रसाउने सन्देशहरू,
 र मनभित्र गढेका आशाका हरफहरू ।
 
-सानैदेखि मनले बोलेको थियो 
+सानैदेखि मनले बोलेको थियो
 "म लेख्न चाहन्छु,
 शब्द मेरो आत्मा हो।"
-त्यसले मलाई सिकायो 
+त्यसले मलाई सिकायो
 "देशका लागि केही गर्न सकिन्छ ।
 
 बुझाएको थियो यो पनि
@@ -831,18 +1062,18 @@ content:`
 त्यो एउटा जीवनको भाषा थियो।
 
 कम तलबको जागिर,
-र कलेजको पढाइ 
+र कलेजको पढाइ
 कहिलेकाहीँ लाग्थ्यो,
-“के साच्चिकै सफल भइएला?”
-तर मनभित्रको आवाज भन्थ्यो 
+"के साच्चिकै सफल भइएला?"
+तर मनभित्रको आवाज भन्थ्यो
 "एक दिन म लेखेर देश बदल्नेछु।"
 
 कुनै समयको ज्वारभाटामा
 लोकसेवाको परीक्षा पनि दिएँ।
-सुब्बा, खरिदार, अनि शिक्षक 
+सुब्बा, खरिदार, अनि शिक्षक
 तीन वटैको पहिलो पत्र पास गरेँ।
-त्यो क्षण मलाई लाग्यो 
-“हो, अब म सफल हुँदैछु।”
+त्यो क्षण मलाई लाग्यो
+"हो, अब म सफल हुँदैछु।"
 
 तर…
 दोश्रो पत्रमा मेरो नाम थिएन ।
@@ -871,18 +1102,17 @@ content:`
 
 उही समयसम्म पनि त्यहि भएछ भने
 गरौंला नि पुरा सपना रहेछ भने
-तर यो मन अझै सपना देख्छ 
+तर यो मन अझै सपना देख्छ
 म थाकेको छु, हो।
 तर म रित्तिएकी छैन।
 म अझै बाँकी त अवस्य छु
 र केहि गर्न चाहन्छु ।
-✏️ बिआरपी माइलो`
-	},
 
+✏️ बिआरपी माइलो`
+},
 {
 title:"कविता: पास्फोर्ट",
-content:`
-मैले भविष्य देखेर देशमै
+content:`मैले भविष्य देखेर देशमै
 बनाए पास्फोर्ट र भरिदिए फर्म
 नयाँ कक्षाको,
 सबै जाँचको,
@@ -930,15 +1160,12 @@ content:`
 हतियार पनि देखेको छ
 हो अब यहि पास्फोर्ट बनाउदै छु
 जसले एअरपोर्टसम्म पुर्याउने छ ।
+
 ✏️ बिआरपी माइलो`
-	},
-
-
-
+},
 {
 title:"कविता: विद्यार्थीप्रति स्नेह",
-content:`
-म बसन्तमा रोइरहदा पनि, शिशिरमा हासेको छु ।
+content:`म बसन्तमा रोइरहदा पनि, शिशिरमा हासेको छु ।
 तिमीहरुको माया र स्नेहमा खुबै प्रिती गासेको छु ।
 गर्व गर्छु पेशा मेरो, फरक नै छ अरु भन्दा,
 खुलम्खुल्ला भन्न सकु, छैन मेरो गलत धन्दा,
@@ -957,14 +1184,12 @@ content:`
 त्यहि दिन घरमा गइ, मेरै नाम रोजेउ अरे ।
 तिमीहरुकै यो प्रेमले, सबै दुख भुलेकोछ,
 शिशिरमा पनि साच्चै ढकमक्क फूलेकोछु ।
+
 ✏️ बिआरपी माइलो`
-	},
-
-
+},
 {
 title:"कविता: लेखक",
-content:`
-लेखकको त्यो सफा कोठा कागज भरिएको
+content:`लेखकको त्यो सफा कोठा कागज भरिएको
 कोठाभरि जताततै कलम छरिएको
 हातभरि कलम छन् अनेक रंगहरुका
 लेख्दा लेख्दै खीइसके टोप्रा नङहरुका
@@ -973,14 +1198,12 @@ content:`
 थालेको त्यो सुरुवाती गर्छन सधै पुरा
 जिम्मेवारी पुरा गर्छ सधै काध थापी
 बिना लोभ लालच आफ्नो कृतिहरु छापी
+
 ✏️ बिआरपी माइलो`
-	},
-
-
+},
 {
 title:"कविता: नेपाल र नेपाली",
-content:`
-हिमालको चुचुरा, शाहासीका आँटहरु
+content:`हिमालको चुचुरा, शाहासीका आँटहरु
 पहाड अनि उस्तै उस्तै साथमा ठुला फाटहरु
 
 तराई हेर्यो समथर छ, बालीनाली सेरोफेरो
@@ -1009,19 +1232,15 @@ content:`
 
 धेरै पढौं, अघि बढौं देशमा योगदान गरौँ
 आफ्नो नाम जोगाइ राखी अनि मात्रै मरौं !
+
 ✏️ बिआरपी माइलो`
-	}
-		];
+}
+];
 
-
-
-
-
-
-/* MUKTAK */
-
+/* ===================================================
+   DATA: MUKTAKS
+=================================================== */
 const muktaks=[
-
 {
 title:"मुक्तक १",
 content:`दसैं आयो, धान झुल्यो
@@ -1029,48 +1248,31 @@ content:`दसैं आयो, धान झुल्यो
 
 ✏️ बिआरपी माइलो`
 }
-
 ];
 
-
-
-
-
-
-
-
-
-
-
-/* LOAD DATA */
-
+/* ============ LOAD DATA ============ */
 function load(list,data){
-
-let container=document.getElementById(list);
-
-data.forEach(d=>{
-
-let card=document.createElement("div");
-
-card.className="card";
-
-card.innerHTML=`
-<div class="title" onclick="toggle(this)">${d.title}</div>
-<div class="content">${d.content}</div>
-`;
-
-container.appendChild(card);
-
-});
-
+  let container=document.getElementById(list);
+  data.forEach(d=>{
+    let card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <div class="title" onclick="toggle(this)">${d.title}</div>
+      <div class="content">${d.content}</div>
+    `;
+    container.appendChild(card);
+  });
 }
 
 load("gazalList",gazals);
 load("poemList",poems);
 load("muktakList",muktaks);
 
+/* ============ STATS (नेपाली अंक) ============ */
+document.getElementById("statGazal").textContent = toNepali(gazals.length);
+document.getElementById("statPoem").textContent = toNepali(poems.length);
+document.getElementById("statMuktak").textContent = toNepali(muktaks.length);
 </script>
 
 </body>
-
 </html>
